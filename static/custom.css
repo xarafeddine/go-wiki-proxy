@@ -1,0 +1,46 @@
+   /* Modified link styles */
+   a[href*="m-wikipedia.org"] {
+    position: relative;
+    text-decoration: none;
+    padding: 2px 4px;
+    transition: all 0.3s ease;
+    border-bottom: 1px dashed #3498db;
+    color: #2980b9;
+}
+
+a[href*="m-wikipedia.org"]:hover {
+    background: rgba(52, 152, 219, 0.1);
+    border-bottom: 1px solid #3498db;
+}
+
+/* Magic effect class */
+a[href*="m-wikipedia.org"].magic-effect {
+    animation: linkMagic 0.5s ease-in-out;
+}
+
+/* Keyframes for the magic effect */
+@keyframes linkMagic {
+    0% { transform: scale(1); filter: blur(0); }
+    50% { transform: scale(1.05); filter: blur(1px); }
+    100% { transform: scale(1); filter: blur(0); }
+}
+
+/* Glowing effect on hover */
+a[href*="m-wikipedia.org"]:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(52, 152, 219, 0.2);
+    filter: blur(4px);
+    z-index: -1;
+    animation: glowPulse 1.5s infinite;
+}
+
+@keyframes glowPulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
